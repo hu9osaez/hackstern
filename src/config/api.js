@@ -14,6 +14,8 @@ export const Hackster = new JsonApi({
     pluralize: false
 });
 
+Hackster.define('channels');
+
 export const setToken = (token) => {
     Hackster.headers.Authorization = `Bearer ${token}`;
 };
