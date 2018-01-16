@@ -1,7 +1,7 @@
 import { hacksterOauth } from '../../config/api';
 import * as types from '../types';
 
-export const getAccessToken = () => async (dispatch, getState) => {
+export const getAccessToken = () => async (dispatch) => {
   dispatch({ type: types.OAUTH_APP });
 
   let dataAccessToken = null;
