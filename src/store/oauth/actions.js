@@ -1,6 +1,22 @@
 import { hacksterOauth } from '../../config/api';
 import * as types from '../types';
 
+export const checkAccessToken = () => async (dispatch, getState) => {
+  let data = await getState().oauth.isAuthenticated;
+
+  console.log(data);
+
+  if(getState().oauth.isAuthenticated) {
+    // Get token
+    // Check expiration
+    console.log('Ya existe');
+  }
+  else {
+    // If not are authenticated, dispatch 'getAccessToken'
+    dispatch(getAccessToken());
+  }
+};
+
 export const getAccessToken = () => async (dispatch) => {
   dispatch({ type: types.OAUTH_APP });
 

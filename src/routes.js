@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { HomeScreen } from './screens';
 
-import { getAccessToken } from './store/oauth/actions';
+import { checkAccessToken } from './store/oauth/actions';
 
 const createRootNavigator = () => {
   return StackNavigator({
@@ -17,12 +17,7 @@ const createRootNavigator = () => {
 
 class RootNavigator extends React.Component {
   componentWillMount() {
-    let { isAuthenticated } = this.props.oauth;
-
-    if(!isAuthenticated) {
-      // Get access token
-      this.props.getAccessToken();
-    }
+      this.props.checkAccessToken();
   }
 
   render() {
@@ -55,4 +50,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getAccessToken })(RootNavigator);
+export default connect(mapStateToProps, { checkAccessToken })(RootNavigator);
